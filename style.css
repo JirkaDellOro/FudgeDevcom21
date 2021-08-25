@@ -23,6 +23,7 @@ div {
   border-radius: 2em;
   padding: 2em;
   text-align: right;
+  visibility: hidden;
 }
 
 input {

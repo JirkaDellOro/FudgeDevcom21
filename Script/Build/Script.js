@@ -100,6 +100,7 @@ var Script;
         static init() {
             Hud.instance = new Hud();
             let dom = document.querySelector("div");
+            dom.style.visibility = "visible";
             Hud.controller = new ƒUi.Controller(Hud.instance, dom);
             Hud.controller.updateUserInterface();
         }

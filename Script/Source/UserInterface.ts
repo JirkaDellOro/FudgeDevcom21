@@ -5,8 +5,8 @@ namespace Script {
   export class Hud extends ƒ.Mutable {
     private static instance: Hud;
     private static controller: ƒUi.Controller;
-    private data: ScriptData;
-    private headline: string;
+    // private data: ScriptData;
+    // private headline: string;
     private time: number = 1;
 
     public static init() {
@@ -17,11 +17,11 @@ namespace Script {
       Hud.controller.updateUserInterface();
     }
 
-    public static set(_node: ƒ.Node): void {
-      Hud.instance.headline = _node.name;
-      Hud.instance.data = _node.getComponent(ScriptData);
-      console.log(Hud.instance.time, Hud.instance.headline, Hud.instance.data);
-    }
+    // public static set(_node: ƒ.Node): void {
+      // Hud.instance.headline = _node.name;
+      // Hud.instance.data = _node.getComponent(ScriptData);
+      // console.log(Hud.instance.time); //, Hud.instance.headline, Hud.instance.data);
+    // }
 
     public static get time(): number {
       return Hud.instance.time;

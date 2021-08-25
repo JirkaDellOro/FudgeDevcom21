@@ -15,23 +15,15 @@ var Script;
                     cmpMeshEarth = node.getComponent(ƒ.ComponentMesh);
                     let cmpAudio = node.getComponent(ƒ.ComponentAudio);
                     cmpAudio.setPanner(ƒ.AUDIO_PANNER.MAX_DISTANCE, 0.1);
-                    Script.Hud.set(node); // <- remove
+                    // Hud.set(node); 
                     break;
                 case "Sun":
                     cmpMaterialSun = node.getComponent(ƒ.ComponentMaterial);
                     break;
             }
-        // viewport.getCanvas().addEventListener("pointerdown", hndMouse, true);
         ƒ.Loop.addEventListener("loopFrame" /* LOOP_FRAME */, update);
         ƒ.Loop.start();
     }
-    // function hndMouse(_event: MouseEvent): void {
-    //   let posMouse: ƒ.Vector2 = new ƒ.Vector2(_event.offsetX, _event.offsetY);
-    //   let picks: ƒ.Pick[] = ƒ.Picker.pickViewport(viewport, posMouse);
-    //   if (!picks.length)
-    //     return;
-    //   Hud.set(picks[0].node);
-    // }
     function update(_event) {
         cmpMeshEarth.mtxPivot.rotateY(360 * ƒ.Loop.timeFrameGame / 1000);
         cmpMaterialSun.mtxPivot.translateY(0.001 * ƒ.Loop.timeFrameGame / 1000);
@@ -39,19 +31,6 @@ var Script;
         ƒ.AudioManager.default.update();
         ƒ.Time.game.setScale(Script.Hud.time);
     }
-})(Script || (Script = {}));
-var Script;
-(function (Script) {
-    var ƒ = FudgeCore;
-    class ScriptData extends ƒ.ComponentScript {
-        constructor() {
-            super(...arguments);
-            this.diameter = "0";
-            this.mass = "0";
-        }
-    }
-    ScriptData.iSubclass = ƒ.Component.registerSubclass(ScriptData);
-    Script.ScriptData = ScriptData;
 })(Script || (Script = {}));
 var Script;
 (function (Script) {
@@ -96,6 +75,8 @@ var Script;
     class Hud extends ƒ.Mutable {
         constructor() {
             super(...arguments);
+            // private data: ScriptData;
+            // private headline: string;
             this.time = 1;
         }
         static init() {
@@ -105,11 +86,11 @@ var Script;
             Hud.controller = new ƒUi.Controller(Hud.instance, dom);
             Hud.controller.updateUserInterface();
         }
-        static set(_node) {
-            Hud.instance.headline = _node.name;
-            Hud.instance.data = _node.getComponent(Script.ScriptData);
-            console.log(Hud.instance.time, Hud.instance.headline, Hud.instance.data);
-        }
+        // public static set(_node: ƒ.Node): void {
+        // Hud.instance.headline = _node.name;
+        // Hud.instance.data = _node.getComponent(ScriptData);
+        // console.log(Hud.instance.time); //, Hud.instance.headline, Hud.instance.data);
+        // }
         static get time() {
             return Hud.instance.time;
         }

@@ -17,28 +17,16 @@ namespace Script {
           cmpMeshEarth = node.getComponent(ƒ.ComponentMesh);
           let cmpAudio = node.getComponent(ƒ.ComponentAudio);
           cmpAudio.setPanner(ƒ.AUDIO_PANNER.MAX_DISTANCE, 0.1);
-          Hud.set(node); // <- remove
+          // Hud.set(node); 
           break;
         case "Sun":
           cmpMaterialSun = node.getComponent(ƒ.ComponentMaterial);
           break;
       }
 
-    // viewport.getCanvas().addEventListener("pointerdown", hndMouse, true);
-
     ƒ.Loop.addEventListener(ƒ.EVENT.LOOP_FRAME, update);
     ƒ.Loop.start();
   }
-
-  // function hndMouse(_event: MouseEvent): void {
-  //   let posMouse: ƒ.Vector2 = new ƒ.Vector2(_event.offsetX, _event.offsetY);
-
-  //   let picks: ƒ.Pick[] = ƒ.Picker.pickViewport(viewport, posMouse);
-  //   if (!picks.length)
-  //     return;
-    
-  //   Hud.set(picks[0].node);
-  // }
 
   function update(_event: Event): void {
     cmpMeshEarth.mtxPivot.rotateY(360 * ƒ.Loop.timeFrameGame / 1000);

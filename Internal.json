@@ -123,15 +123,6 @@
                     }
                   }
                 }
-              ],
-              "ScriptData": [
-                {
-                  "Script.ScriptData": {
-                    "active": true,
-                    "diameter": "1.400.000",
-                    "mass": "1.98 e+30"
-                  }
-                }
               ]
             },
             "children": [
@@ -224,15 +215,6 @@
                                 "volume": 1
                               }
                             }
-                          ],
-                          "ScriptData": [
-                            {
-                              "Script.ScriptData": {
-                                "active": true,
-                                "diameter": "12.756",
-                                "mass": "5,97 e+24"
-                              }
-                            }
                           ]
                         },
                         "children": [
@@ -312,15 +294,6 @@
                                             "Component": {
                                               "active": true
                                             }
-                                          }
-                                        }
-                                      ],
-                                      "ScriptData": [
-                                        {
-                                          "Script.ScriptData": {
-                                            "active": true,
-                                            "diameter": "3.474",
-                                            "mass": "7,34 e+22"
                                           }
                                         }
                                       ]

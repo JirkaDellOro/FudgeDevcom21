@@ -1,6 +1,8 @@
-# Pick to display data
-Now that nodes can be fed to the hud to display the data, enable picking for the user.
-- remove Hud.set of the Earth
-- add a listener to the canvas for the capture phase, in order not to pick the focus arrows
-- add handler that feeds mouse offset to Picker.pickViewport, which returns a list of objects picked, ordered by distance
-- if there are objects in the list, send to Hud
+# Display data
+Extend the userinterface to display data of celestial bodies. Therefore, the data must be entered.  
+- create a simple ComponentScript just to hold data
+- in the editor, add the script to sun, earth, and moon and enter the corresponding data
+- extend the userinterface-section in the html file accordingly
+- add properties for the headline field and the data to display to the Hud-class
+- implement a method that takes a Node as parameter and assignes the name and the data from the script attached to the Hud properties
+- feed this Hud-method from Main

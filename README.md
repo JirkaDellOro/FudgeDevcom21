@@ -11,6 +11,8 @@ The program displays a solar system reduced to the sun, the earth and the moon. 
 - the user interface system
 - and much more...
 
+Click here to run it from Github-Pages: https://jirkadelloro.github.io/FudgeDevcom21/
+
 ## Sources
 - Textures: https://www.solarsystemscope.com/textures/  
 - Sounds: https://mixkit.co/free-sound-effects/crowd/  

@@ -8,7 +8,7 @@ namespace Script {
   document.addEventListener("interactiveViewportStarted", <EventListener>start);
 
   function start(_event: CustomEvent): void {
-    Hud.init();
+    // Hud.init();
 
     viewport = _event.detail;
     for (let node of viewport.getBranch())
@@ -17,7 +17,6 @@ namespace Script {
           cmpMeshEarth = node.getComponent(ƒ.ComponentMesh);
           let cmpAudio = node.getComponent(ƒ.ComponentAudio);
           cmpAudio.setPanner(ƒ.AUDIO_PANNER.MAX_DISTANCE, 0.1);
-          // Hud.set(node); 
           break;
         case "Sun":
           cmpMaterialSun = node.getComponent(ƒ.ComponentMaterial);
@@ -36,6 +35,6 @@ namespace Script {
     ƒ.AudioManager.default.update();
 
     
-    ƒ.Time.game.setScale(Hud.time);
+    // ƒ.Time.game.setScale(Hud.time);
   }
 }

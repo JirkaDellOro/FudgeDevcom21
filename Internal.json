@@ -1,0 +1,348 @@
+{
+  "MeshSphere|2021-08-24T13:01:09.261Z|56860": {
+    "ƒ.MeshSphere": {
+      "idResource": "MeshSphere|2021-08-24T13:01:09.261Z|56860",
+      "name": "MeshSphere",
+      "type": "MeshSphere",
+      "sectors": 28,
+      "stacks": 11
+    }
+  },
+  "TextureImage|2021-08-24T13:02:01.275Z|99054": {
+    "ƒ.TextureImage": {
+      "url": "Textures\\Earth.jpg",
+      "idResource": "TextureImage|2021-08-24T13:02:01.275Z|99054",
+      "name": "imgEarth",
+      "type": "TextureImage"
+    }
+  },
+  "Material|2021-08-24T13:02:21.288Z|28376": {
+    "ƒ.Material": {
+      "name": "mtrEarth",
+      "idResource": "Material|2021-08-24T13:02:21.288Z|28376",
+      "shader": "ShaderTexture",
+      "coat": {
+        "ƒ.CoatTextured": {
+          "name": "Coat",
+          "color": "[1, 1, 1, 1]",
+          "idTexture": "TextureImage|2021-08-24T13:02:01.275Z|99054"
+        }
+      }
+    }
+  },
+  "Material|2021-08-24T13:06:39.244Z|79203": {
+    "ƒ.Material": {
+      "name": "mtrSun",
+      "idResource": "Material|2021-08-24T13:06:39.244Z|79203",
+      "shader": "ShaderTexture",
+      "coat": {
+        "ƒ.CoatTextured": {
+          "name": "Coat",
+          "color": "[1, 1, 1, 1]",
+          "idTexture": "TextureImage|2021-08-24T13:06:34.582Z|87766"
+        }
+      }
+    }
+  },
+  "TextureImage|2021-08-24T13:06:34.582Z|87766": {
+    "ƒ.TextureImage": {
+      "url": "Textures\\Sun.jpg",
+      "idResource": "TextureImage|2021-08-24T13:06:34.582Z|87766",
+      "name": "imgSun",
+      "type": "TextureImage"
+    }
+  },
+  "Material|2021-08-24T13:06:50.942Z|47665": {
+    "ƒ.Material": {
+      "name": "mtrMoon",
+      "idResource": "Material|2021-08-24T13:06:50.942Z|47665",
+      "shader": "ShaderTexture",
+      "coat": {
+        "ƒ.CoatTextured": {
+          "name": "Coat",
+          "color": "[1, 1, 1, 1]",
+          "idTexture": "TextureImage|2021-08-24T13:06:34.582Z|00338"
+        }
+      }
+    }
+  },
+  "TextureImage|2021-08-24T13:06:34.582Z|00338": {
+    "ƒ.TextureImage": {
+      "url": "Textures\\Moon.jpg",
+      "idResource": "TextureImage|2021-08-24T13:06:34.582Z|00338",
+      "name": "imgMoon",
+      "type": "TextureImage"
+    }
+  },
+  "Audio|2021-08-24T16:41:36.451Z|76273": {
+    "ƒ.Audio": {
+      "url": "Sounds\\Crowd.mp3",
+      "idResource": "Audio|2021-08-24T16:41:36.451Z|76273",
+      "name": "Sounds\\Crowd.mp3",
+      "type": "Audio"
+    }
+  },
+  "Graph|2021-08-24T14:13:20.123Z|90195": {
+    "ƒ.Graph": {
+      "name": "SolarSystem",
+      "components": {},
+      "children": [
+        {
+          "ƒ.Node": {
+            "name": "Sun",
+            "components": {
+              "ComponentMaterial": [
+                {
+                  "ƒ.ComponentMaterial": {
+                    "sortForAlpha": false,
+                    "clrPrimary": "[1, 1, 1, 1]",
+                    "clrSecondary": "[1, 1, 1, 1]",
+                    "pivot": {
+                      "translation": "[0, 0]",
+                      "rotation": 0,
+                      "scaling": "[1, 1]"
+                    },
+                    "Component": {
+                      "active": true
+                    },
+                    "idMaterial": "Material|2021-08-24T13:06:39.244Z|79203"
+                  }
+                }
+              ],
+              "ComponentMesh": [
+                {
+                  "ƒ.ComponentMesh": {
+                    "idMesh": "MeshSphere|2021-08-24T13:01:09.261Z|56860",
+                    "pivot": {
+                      "translation": "[0, 0, 0]",
+                      "rotation": "[0, 0, 0]",
+                      "scaling": "[2, 2, 2]"
+                    },
+                    "Component": {
+                      "active": true
+                    }
+                  }
+                }
+              ],
+              "ScriptData": [
+                {
+                  "Script.ScriptData": {
+                    "active": true,
+                    "diameter": "1.400.000",
+                    "mass": "1.98 e+30"
+                  }
+                }
+              ]
+            },
+            "children": [
+              {
+                "ƒ.Node": {
+                  "name": "OrbitEarth",
+                  "components": {
+                    "ComponentTransform": [
+                      {
+                        "ƒ.ComponentTransform": {
+                          "local": {
+                            "translation": "[0, 0, 0]",
+                            "rotation": "[0, 0, 0]",
+                            "scaling": "[1, 1, 1]"
+                          },
+                          "Component": {
+                            "active": true
+                          }
+                        }
+                      }
+                    ],
+                    "ScriptOrbit": [
+                      {
+                        "Script.ScriptOrbit": {
+                          "active": true,
+                          "angularVelocity": 1
+                        }
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "ƒ.Node": {
+                        "name": "Earth",
+                        "components": {
+                          "ComponentMaterial": [
+                            {
+                              "ƒ.ComponentMaterial": {
+                                "sortForAlpha": false,
+                                "clrPrimary": "[1, 1, 1, 1]",
+                                "clrSecondary": "[1, 1, 1, 1]",
+                                "pivot": {
+                                  "translation": "[0, 0]",
+                                  "rotation": 0,
+                                  "scaling": "[1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                },
+                                "idMaterial": "Material|2021-08-24T13:02:21.288Z|28376"
+                              }
+                            }
+                          ],
+                          "ComponentMesh": [
+                            {
+                              "ƒ.ComponentMesh": {
+                                "idMesh": "MeshSphere|2021-08-24T13:01:09.261Z|56860",
+                                "pivot": {
+                                  "translation": "[0, 0, 0]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[1, 1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ],
+                          "ComponentTransform": [
+                            {
+                              "ƒ.ComponentTransform": {
+                                "local": {
+                                  "translation": "[4, 0, 0]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[1, 1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ],
+                          "ComponentAudio": [
+                            {
+                              "ƒ.ComponentAudio": {
+                                "active": true,
+                                "idResource": "Audio|2021-08-24T16:41:36.451Z|76273",
+                                "playing": true,
+                                "loop": true,
+                                "volume": 1
+                              }
+                            }
+                          ],
+                          "ScriptData": [
+                            {
+                              "Script.ScriptData": {
+                                "active": true,
+                                "diameter": "12.756",
+                                "mass": "5,97 e+24"
+                              }
+                            }
+                          ]
+                        },
+                        "children": [
+                          {
+                            "ƒ.Node": {
+                              "name": "OrbitMoon",
+                              "components": {
+                                "ComponentTransform": [
+                                  {
+                                    "ƒ.ComponentTransform": {
+                                      "local": {
+                                        "translation": "[0, 0, 0]",
+                                        "rotation": "[0, 0, 0]",
+                                        "scaling": "[1, 1, 1]"
+                                      },
+                                      "Component": {
+                                        "active": true
+                                      }
+                                    }
+                                  }
+                                ],
+                                "ScriptOrbit": [
+                                  {
+                                    "Script.ScriptOrbit": {
+                                      "active": true,
+                                      "angularVelocity": 13
+                                    }
+                                  }
+                                ]
+                              },
+                              "children": [
+                                {
+                                  "ƒ.Node": {
+                                    "name": "Moon",
+                                    "components": {
+                                      "ComponentMaterial": [
+                                        {
+                                          "ƒ.ComponentMaterial": {
+                                            "sortForAlpha": false,
+                                            "clrPrimary": "[1, 1, 1, 1]",
+                                            "clrSecondary": "[1, 1, 1, 1]",
+                                            "pivot": {
+                                              "translation": "[0, 0]",
+                                              "rotation": 0,
+                                              "scaling": "[1, 1]"
+                                            },
+                                            "Component": {
+                                              "active": true
+                                            },
+                                            "idMaterial": "Material|2021-08-24T13:06:50.942Z|47665"
+                                          }
+                                        }
+                                      ],
+                                      "ComponentMesh": [
+                                        {
+                                          "ƒ.ComponentMesh": {
+                                            "idMesh": "MeshSphere|2021-08-24T13:01:09.261Z|56860",
+                                            "pivot": {
+                                              "translation": "[0, 0, 0]",
+                                              "rotation": "[0, 0, 0]",
+                                              "scaling": "[1, 1, 1]"
+                                            },
+                                            "Component": {
+                                              "active": true
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      "ComponentTransform": [
+                                        {
+                                          "ƒ.ComponentTransform": {
+                                            "local": {
+                                              "translation": "[1.2000000476837158, 0, 0]",
+                                              "rotation": "[0, 0, 0]",
+                                              "scaling": "[0.49999991059303284, 0.49999991059303284, 0.49999991059303284]"
+                                            },
+                                            "Component": {
+                                              "active": true
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      "ScriptData": [
+                                        {
+                                          "Script.ScriptData": {
+                                            "active": true,
+                                            "diameter": "3.474",
+                                            "mass": "7,34 e+22"
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "children": []
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "idResource": "Graph|2021-08-24T14:13:20.123Z|90195",
+      "type": "Graph"
+    }
+  }
+}

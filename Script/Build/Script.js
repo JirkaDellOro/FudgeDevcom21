@@ -2,47 +2,17 @@
 var Script;
 (function (Script) {
     var ƒ = FudgeCore;
-    let viewport;
-    let cmpMeshEarth;
-    let cmpMaterialSun;
-    document.addEventListener("interactiveViewportStarted", start);
-    function start(_event) {
-        viewport = _event.detail;
-        for (let node of viewport.getBranch())
-            switch (node.name) {
-                case "Earth":
-                    cmpMeshEarth = node.getComponent(ƒ.ComponentMesh);
-                    // let cmpAudio = node.getComponent(ƒ.ComponentAudio);
-                    // cmpAudio.setPanner(ƒ.AUDIO_PANNER.MAX_DISTANCE, 0.1);
-                    break;
-                case "Sun":
-                    cmpMaterialSun = node.getComponent(ƒ.ComponentMaterial);
-                    break;
-            }
-        ƒ.Loop.addEventListener("loopFrame" /* LOOP_FRAME */, update);
-        ƒ.Loop.start();
-    }
-    function update(_event) {
-        cmpMeshEarth.mtxPivot.rotateY(360 * ƒ.Loop.timeFrameGame / 1000);
-        cmpMaterialSun.mtxPivot.translateY(0.001 * ƒ.Loop.timeFrameGame / 1000);
-        viewport.draw();
-        ƒ.AudioManager.default.update();
-    }
-})(Script || (Script = {}));
-var Script;
-(function (Script) {
-    var ƒ = FudgeCore;
     ƒ.Project.registerScriptNamespace(Script); // Register the namespace to FUDGE for serialization
-    class ScriptOrbit extends ƒ.ComponentScript {
-        // Properties may be mutated by users in the editor via the automatically created user interface
-        // public angularVelocity: number = 1;
+    class CustomComponentScript extends ƒ.ComponentScript {
         constructor() {
             super();
+            // Properties may be mutated by users in the editor via the automatically created user interface
+            this.message = "CustomComponentScript added to ";
             // Activate the functions of this component as response to events
             this.hndEvent = (_event) => {
                 switch (_event.type) {
                     case "componentAdd" /* COMPONENT_ADD */:
-                        // ƒ.Loop.addEventListener(ƒ.EVENT.LOOP_FRAME, this.update);
+                        ƒ.Debug.log(this.message, this.getContainer());
                         break;
                     case "componentRemove" /* COMPONENT_REMOVE */:
                         this.removeEventListener("componentAdd" /* COMPONENT_ADD */, this.hndEvent);
@@ -59,7 +29,35 @@ var Script;
         }
     }
     // Register the script as component for use in the editor via drag&drop
-    ScriptOrbit.iSubclass = ƒ.Component.registerSubclass(ScriptOrbit);
-    Script.ScriptOrbit = ScriptOrbit;
+    CustomComponentScript.iSubclass = ƒ.Component.registerSubclass(CustomComponentScript);
+    Script.CustomComponentScript = CustomComponentScript;
+})(Script || (Script = {}));
+var Script;
+(function (Script) {
+    var ƒ = FudgeCore;
+    let viewport;
+    // let cmpMeshEarth: ƒ.ComponentMesh;
+    // let cmpMaterialSun: ƒ.ComponentMaterial;
+    document.addEventListener("interactiveViewportStarted", start);
+    function start(_event) {
+        viewport = _event.detail;
+        // for (let node of viewport.getBranch())
+        //   switch (node.name) {
+        //     case "Earth":
+        //       cmpMeshEarth = node.getComponent(ƒ.ComponentMesh);
+        //       break;
+        //     case "Sun":
+        //       cmpMaterialSun = node.getComponent(ƒ.ComponentMaterial);
+        //       break;
+        //   }
+        ƒ.Loop.addEventListener("loopFrame" /* LOOP_FRAME */, update);
+        ƒ.Loop.start();
+    }
+    function update(_event) {
+        // cmpMeshEarth.mtxPivot.rotateY(360 * ƒ.Loop.timeFrameGame / 1000);
+        // cmpMaterialSun.mtxPivot.translateY(0.001 * ƒ.Loop.timeFrameGame / 1000);
+        viewport.draw();
+        ƒ.AudioManager.default.update();
+    }
 })(Script || (Script = {}));
 //# sourceMappingURL=Script.js.map

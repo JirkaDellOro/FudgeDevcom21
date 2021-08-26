@@ -6,7 +6,7 @@ namespace Script {
     // Register the script as component for use in the editor via drag&drop
     public static readonly iSubclass: number = ƒ.Component.registerSubclass(ScriptOrbit);
     // Properties may be mutated by users in the editor via the automatically created user interface
-    public angularVelocity: number = 1;
+    // public angularVelocity: number = 1;
 
 
     constructor() {
@@ -25,7 +25,7 @@ namespace Script {
     public hndEvent = (_event: Event) => {
       switch (_event.type) {
         case ƒ.EVENT.COMPONENT_ADD:
-          ƒ.Loop.addEventListener(ƒ.EVENT.LOOP_FRAME, this.update);
+          // ƒ.Loop.addEventListener(ƒ.EVENT.LOOP_FRAME, this.update);
           break;
         case ƒ.EVENT.COMPONENT_REMOVE:
           this.removeEventListener(ƒ.EVENT.COMPONENT_ADD, this.hndEvent);
@@ -34,9 +34,9 @@ namespace Script {
       }
     }
 
-    private update = (_event: Event): void => {
-      this.getContainer().mtxLocal.rotateY(this.angularVelocity * ƒ.Loop.timeFrameGame / 1000);
-    }
+    // private update = (_event: Event): void => {
+    //   this.getContainer().mtxLocal.rotateY(this.angularVelocity * ƒ.Loop.timeFrameGame / 1000);
+    // }
 
     // protected reduceMutator(_mutator: ƒ.Mutator): void {
     //   // delete properties that should not be mutated

@@ -34,24 +34,21 @@ var Script;
     var ƒ = FudgeCore;
     ƒ.Project.registerScriptNamespace(Script); // Register the namespace to FUDGE for serialization
     class ScriptOrbit extends ƒ.ComponentScript {
+        // Properties may be mutated by users in the editor via the automatically created user interface
+        // public angularVelocity: number = 1;
         constructor() {
             super();
-            // Properties may be mutated by users in the editor via the automatically created user interface
-            this.angularVelocity = 1;
             // Activate the functions of this component as response to events
             this.hndEvent = (_event) => {
                 switch (_event.type) {
                     case "componentAdd" /* COMPONENT_ADD */:
-                        ƒ.Loop.addEventListener("loopFrame" /* LOOP_FRAME */, this.update);
+                        // ƒ.Loop.addEventListener(ƒ.EVENT.LOOP_FRAME, this.update);
                         break;
                     case "componentRemove" /* COMPONENT_REMOVE */:
                         this.removeEventListener("componentAdd" /* COMPONENT_ADD */, this.hndEvent);
                         this.removeEventListener("componentRemove" /* COMPONENT_REMOVE */, this.hndEvent);
                         break;
                 }
-            };
-            this.update = (_event) => {
-                this.getContainer().mtxLocal.rotateY(this.angularVelocity * ƒ.Loop.timeFrameGame / 1000);
             };
             // Don't start when running in editor
             if (ƒ.Project.mode == ƒ.MODE.EDITOR)

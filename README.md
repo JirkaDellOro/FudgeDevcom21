@@ -1,6 +1,10 @@
-# Audio
-FudgeCore supports WebAudio and synchronizes both graphs. It creates the graphs necessary for threedimensional audio and offers interfaces to extend these graphs with other WebAudio-nodes
-- a simple way to include audio, is to drag an audio-file to the internal resources, which creates an Audio-Resource
-- drag that resource to a node in the graph. This creates a component that binds the audiosignal to the node and allows for control
-- simple features like volume, start/stop and loop are supported for convenience
-- to extend the graph or to control the audio nodes within, using all the features of WebAudio, access the component and the audio resource programmatically
+# Script Component
+Implement your own script components to use them in the editor and attach them to nodes. A new project offers a template. Use this template to create a script that spins the orbits for the earth and the moon.
+## Implementation
+- rename the file CustomComponentScript and the class within (e.g. ScriptOrbit)
+- add a property to control the speed of rotation (e.g. angularVelocity)
+- add an update-method that rotates the node containing this component by an amount calculated from the velocity and the time passed since the last frame of the game loop
+- when the component gets attached to the node, add an event listener to the game loop calling this update method each frame
+## Usage
+- in the editor, drag and drop the component from the script-view to the orbit-nodes
+- adjust the property that shows up at the component to the desired orbit speed

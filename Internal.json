@@ -135,14 +135,6 @@
                           }
                         }
                       }
-                    ],
-                    "ScriptOrbit": [
-                      {
-                        "Script.ScriptOrbit": {
-                          "active": true,
-                          "angularVelocity": 1
-                        }
-                      }
                     ]
                   },
                   "children": [
@@ -214,14 +206,6 @@
                                       "Component": {
                                         "active": true
                                       }
-                                    }
-                                  }
-                                ],
-                                "ScriptOrbit": [
-                                  {
-                                    "Script.ScriptOrbit": {
-                                      "active": true,
-                                      "angularVelocity": 13
                                     }
                                   }
                                 ]

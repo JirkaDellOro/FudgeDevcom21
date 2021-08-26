@@ -1,33 +1,18 @@
 namespace Script {
   import ƒ = FudgeCore;
+  ƒ.Debug.info("Main Program Template running!")
 
   let viewport: ƒ.Viewport;
-  // let cmpMeshEarth: ƒ.ComponentMesh;
-  // let cmpMaterialSun: ƒ.ComponentMaterial;
-
   document.addEventListener("interactiveViewportStarted", <EventListener>start);
 
   function start(_event: CustomEvent): void {
-
     viewport = _event.detail;
-    // for (let node of viewport.getBranch())
-    //   switch (node.name) {
-    //     case "Earth":
-    //       cmpMeshEarth = node.getComponent(ƒ.ComponentMesh);
-    //       break;
-    //     case "Sun":
-    //       cmpMaterialSun = node.getComponent(ƒ.ComponentMaterial);
-    //       break;
-    //   }
 
     ƒ.Loop.addEventListener(ƒ.EVENT.LOOP_FRAME, update);
-    ƒ.Loop.start();
+    // ƒ.Loop.start();  // start the game loop to continously draw the viewport and update the audiosystem
   }
 
   function update(_event: Event): void {
-    // cmpMeshEarth.mtxPivot.rotateY(360 * ƒ.Loop.timeFrameGame / 1000);
-    // cmpMaterialSun.mtxPivot.translateY(0.001 * ƒ.Loop.timeFrameGame / 1000);
-
     viewport.draw();
     ƒ.AudioManager.default.update();
   }

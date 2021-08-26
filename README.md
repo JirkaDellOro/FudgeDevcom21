@@ -1,8 +1,16 @@
-# Display data
-Extend the userinterface to display data of celestial bodies. Therefore, the data must be entered.  
-- create a simple ComponentScript just to hold data
-- in the editor, add the script to sun, earth, and moon and enter the corresponding data
-- extend the userinterface-section in the html file accordingly
-- add properties for the headline field and the data to display to the Hud-class
-- implement a method that takes a Node as parameter and assignes the name and the data from the script attached to the Hud properties
-- feed this Hud-method from Main
+# UserInterface
+FudgeUserInterface may be used to synchronize game data with a virtual user interface (hud) for display and additional interaction.
+## Preparation (already done in example)
+- copy FudgeUserInterface to the project as done with FudgeCore and FudgeAid
+- place a link in the html-file accordingly
+- add a path to types in the file tsconfig.json
+## Dom-Elements
+- in the html-file, place a div-tag to hold the user interface
+- within, create input-tags for the information to display and manipulate
+- add an attribute `key` with a value corresponding to the property name in the game data (e.g. time)
+## Hud-Class
+- create a new class to keep information and control the user interface
+- the class must extend ƒ.Mutable and therefore implement the method reduceMutator (empty in the example)
+- import FudgeUserInterface along with FudgeCore (e.g. ƒUi) at the start of the class file
+- find the dom-element holding the user interface and connect it to an instance of the Hud-class using ƒUi.Controller
+- the controller now automatically synchronizes the data and the user interface

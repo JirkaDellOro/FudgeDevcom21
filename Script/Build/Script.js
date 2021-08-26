@@ -7,7 +7,7 @@ var Script;
     let cmpMaterialSun;
     document.addEventListener("interactiveViewportStarted", start);
     function start(_event) {
-        Script.Hud.init();
+        // Hud.init();
         viewport = _event.detail;
         for (let node of viewport.getBranch())
             switch (node.name) {
@@ -15,7 +15,6 @@ var Script;
                     cmpMeshEarth = node.getComponent(ƒ.ComponentMesh);
                     let cmpAudio = node.getComponent(ƒ.ComponentAudio);
                     cmpAudio.setPanner(ƒ.AUDIO_PANNER.MAX_DISTANCE, 0.1);
-                    // Hud.set(node); 
                     break;
                 case "Sun":
                     cmpMaterialSun = node.getComponent(ƒ.ComponentMaterial);
@@ -29,7 +28,7 @@ var Script;
         cmpMaterialSun.mtxPivot.translateY(0.001 * ƒ.Loop.timeFrameGame / 1000);
         viewport.draw();
         ƒ.AudioManager.default.update();
-        ƒ.Time.game.setScale(Script.Hud.time);
+        // ƒ.Time.game.setScale(Hud.time);
     }
 })(Script || (Script = {}));
 var Script;
@@ -67,35 +66,5 @@ var Script;
     // Register the script as component for use in the editor via drag&drop
     ScriptOrbit.iSubclass = ƒ.Component.registerSubclass(ScriptOrbit);
     Script.ScriptOrbit = ScriptOrbit;
-})(Script || (Script = {}));
-var Script;
-(function (Script) {
-    var ƒ = FudgeCore;
-    var ƒUi = FudgeUserInterface;
-    class Hud extends ƒ.Mutable {
-        constructor() {
-            super(...arguments);
-            // private data: ScriptData;
-            // private headline: string;
-            this.time = 1;
-        }
-        static init() {
-            Hud.instance = new Hud();
-            let dom = document.querySelector("div");
-            dom.style.visibility = "visible";
-            Hud.controller = new ƒUi.Controller(Hud.instance, dom);
-            Hud.controller.updateUserInterface();
-        }
-        // public static set(_node: ƒ.Node): void {
-        // Hud.instance.headline = _node.name;
-        // Hud.instance.data = _node.getComponent(ScriptData);
-        // console.log(Hud.instance.time); //, Hud.instance.headline, Hud.instance.data);
-        // }
-        static get time() {
-            return Hud.instance.time;
-        }
-        reduceMutator(_mutator) { }
-    }
-    Script.Hud = Hud;
 })(Script || (Script = {}));
 //# sourceMappingURL=Script.js.map

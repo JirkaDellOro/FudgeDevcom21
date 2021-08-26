@@ -11,5 +11,3 @@ declare namespace Script {
         private update;
     }
 }
-declare namespace Script {
-}

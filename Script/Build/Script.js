@@ -7,14 +7,13 @@ var Script;
     let cmpMaterialSun;
     document.addEventListener("interactiveViewportStarted", start);
     function start(_event) {
-        // Hud.init();
         viewport = _event.detail;
         for (let node of viewport.getBranch())
             switch (node.name) {
                 case "Earth":
                     cmpMeshEarth = node.getComponent(ƒ.ComponentMesh);
-                    let cmpAudio = node.getComponent(ƒ.ComponentAudio);
-                    cmpAudio.setPanner(ƒ.AUDIO_PANNER.MAX_DISTANCE, 0.1);
+                    // let cmpAudio = node.getComponent(ƒ.ComponentAudio);
+                    // cmpAudio.setPanner(ƒ.AUDIO_PANNER.MAX_DISTANCE, 0.1);
                     break;
                 case "Sun":
                     cmpMaterialSun = node.getComponent(ƒ.ComponentMaterial);
@@ -28,7 +27,6 @@ var Script;
         cmpMaterialSun.mtxPivot.translateY(0.001 * ƒ.Loop.timeFrameGame / 1000);
         viewport.draw();
         ƒ.AudioManager.default.update();
-        // ƒ.Time.game.setScale(Hud.time);
     }
 })(Script || (Script = {}));
 var Script;

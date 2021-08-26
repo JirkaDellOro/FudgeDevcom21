@@ -74,14 +74,6 @@
       "type": "TextureImage"
     }
   },
-  "Audio|2021-08-24T16:41:36.451Z|76273": {
-    "ƒ.Audio": {
-      "url": "Sounds\\Crowd.mp3",
-      "idResource": "Audio|2021-08-24T16:41:36.451Z|76273",
-      "name": "Sounds\\Crowd.mp3",
-      "type": "Audio"
-    }
-  },
   "Graph|2021-08-24T14:13:20.123Z|90195": {
     "ƒ.Graph": {
       "name": "SolarSystem",
@@ -202,17 +194,6 @@
                                 "Component": {
                                   "active": true
                                 }
-                              }
-                            }
-                          ],
-                          "ComponentAudio": [
-                            {
-                              "ƒ.ComponentAudio": {
-                                "active": true,
-                                "idResource": "Audio|2021-08-24T16:41:36.451Z|76273",
-                                "playing": true,
-                                "loop": true,
-                                "volume": 1
                               }
                             }
                           ]
